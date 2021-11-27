@@ -18,37 +18,51 @@ async function searchPhone(e) {
     if (data.status) {
     
         for (let phone of data.data.phones) {
-            modelHTML = document.createElement('li');
+          modelHTML = document.createElement("li");
 
-            // create div with class name phone
+          // create div with class name phone
 
-            let phoneDiv = document.createElement('div');
-            phoneDiv.classList.add('phone')
+          let phoneDiv = document.createElement("div");
+          phoneDiv.classList.add("phone");
 
-            //create div with class name brand
+          //create div with class name brand
 
-            let phoneBrand = document.createElement('div')
-            phoneBrand.classList.add('brand');
-            phoneBrand.innerHTML = `${phone.phone_name}`;
-
-            let phoneImageDiv = document.createElement('div');
-            phoneImageDiv.classList.add('picture');
-
-            let phoneImage = document.createElement('img');
-            phoneImage.setAttribute('src', phone.image)
-            phoneImageDiv.appendChild(phoneImage);
-            phoneDiv.appendChild(phoneImageDiv)
+          let phoneBrand = document.createElement("div");
+          phoneBrand.classList.add("brand");
+          phoneBrand.innerHTML = `${phone.phone_name}`;
 
 
+          let phoneImageDiv = document.createElement("div");
+          phoneImageDiv.classList.add("picture");
 
+          let phoneImage = document.createElement("img");
+          phoneImage.setAttribute("src", phone.image);
+          phoneImageDiv.appendChild(phoneImage);
+          phoneDiv.appendChild(phoneImageDiv);
 
+          phoneDiv.appendChild(phoneBrand);
+          modelHTML.appendChild(phoneDiv);
+          phoneListItem.appendChild(modelHTML);
 
+         // create element btn with class name
+        //   let detailbtn = document.createElement('button');
+        //     detailbtn.classList.add('details');
+        //     detailbtn.innerHTML = `${phone.details}`;
 
+            
+        //     phoneDiv.appendChild(detailbtn);
+            document.getElementById('btn').onclick=function(){
+                let a = document.createElement('a');
+                a.target = '_blank';
+                a.href=''
 
-            phoneDiv.appendChild(phoneBrand);
-            modelHTML.appendChild(phoneDiv);
-            phoneListItem.appendChild(modelHTML)
+            }
+
+           
+         
         }
+                    
+
     } else {
         modelHTML = document.createElement('li')
         modelHTML.innerHTML = 'Results not found'
