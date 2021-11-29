@@ -55,8 +55,10 @@ async function searchPhone(e) {
         detailBtn.classList.add("details");
         detailBtn.innerHTML = "Details";
         detailBtn.setAttribute("onclick", `showDetails("${phone.detail}")`);
-        detailBtn.setAttribute("data-toggle", "modal");
-        detailBtn.setAttribute("data-target", "#myModal");
+
+        
+         detailBtn.setAttribute("data-toggle", "modal");
+         detailBtn.setAttribute("data-target", "#myModal");
 
         phoneDiv.appendChild(detailBtn);
       }
