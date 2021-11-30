@@ -1,20 +1,34 @@
 const inputData = document.getElementById("inputdata");
-// const inputPhoneName = document.getElementById("phoneName");
 const phoneListItem = document.querySelector(".phonelistitem");
 const detailBtn = document.getElementById('details');
 let modalDetail = document.querySelector(".modal-body");
 let modalTitle = document.querySelector('.modal-title')
 
+
+let spinnerDiv = document.createElement('div');
+spinnerDiv.classList.add('spinner-border')
+
+
 inputData.addEventListener("keyup", searchPhone);
 
 async function showDetails(url) {
+
+
+  while (modalDetail.firstChild) {
+    modalDetail.removeChild(modalDetail.firstChild);
+  }
+
+  modalDetail.appendChild(spinnerDiv);
+  spinnerDiv.style.display = 'block';
+  
+
   let response = await fetch(url);
   let data = await response.json();
   //console.log(data);
+
+  spinnerDiv.style.display = 'none';
   
-  while (modalDetail.firstChild) {
-    modalDetail.removeChild(modalDetail.firstChild)
-  }
+  
 
   let mobBrandDiv = document.createElement("div");
   mobBrandDiv.innerHTML = `Brand: ${data.data.brand}`;
@@ -26,6 +40,7 @@ async function showDetails(url) {
 
   modalDetail.appendChild(mobBrandDiv);
   modalDetail.appendChild(mobDimensionDiv);
+  
   
 
 }
