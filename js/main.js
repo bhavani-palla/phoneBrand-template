@@ -1,13 +1,33 @@
 const inputData = document.getElementById("inputdata");
-const inputPhoneName = document.getElementById("phoneName");
+// const inputPhoneName = document.getElementById("phoneName");
 const phoneListItem = document.querySelector(".phonelistitem");
+const detailBtn = document.getElementById('details');
+let modalDetail = document.querySelector(".modal-body");
+let modalTitle = document.querySelector('.modal-title')
 
 inputData.addEventListener("keyup", searchPhone);
 
 async function showDetails(url) {
   let response = await fetch(url);
   let data = await response.json();
-  console.log(data);
+  //console.log(data);
+  
+  while (modalDetail.firstChild) {
+    modalDetail.removeChild(modalDetail.firstChild)
+  }
+
+  let mobBrandDiv = document.createElement("div");
+  mobBrandDiv.innerHTML = `Brand: ${data.data.brand}`;
+  modalTitle.innerHTML = `Model: ${data.data.phone_name}`;
+
+  let mobDimensionDiv = document.createElement('div');
+  mobDimensionDiv.innerHTML = `Dimension: ${data.data.dimension}`;
+
+
+  modalDetail.appendChild(mobBrandDiv);
+  modalDetail.appendChild(mobDimensionDiv);
+  
+
 }
 
 async function searchPhone(e) {
@@ -65,7 +85,7 @@ async function searchPhone(e) {
     }
   } catch (error) {
     console.log(error)
-    // modelHTML = document.createElement("li");
+     modelHTML = document.createElement("li");
 
     modelHTML.innerHTML = "Results not found";
      phoneListItem.appendChild(modelHTML);

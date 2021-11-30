@@ -14,10 +14,21 @@ body {
   background-attachment: fixed;
 
 }
- /* #container {
-  width: 100%;
   
-}  */
+#container{
+  text-align: crnter;
+  margin: 0 auto;
+  margin:0 auto;
+  position: absolute;
+  justify-content: center;
+
+  align-items: center;
+
+}
+/* .modal-lg{
+  max-width: 60% !important;
+} */
+
 h2 {
   text-align: center;
   color: rgb(86, 166, 219);
