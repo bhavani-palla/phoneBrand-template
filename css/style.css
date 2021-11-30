@@ -12,17 +12,16 @@ body {
   background:linear-gradient(#e66465,#9198e5);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  font-weight: bolder;
 
 }
   
 #container{
-  text-align: crnter;
+  text-align: center;
   margin: 0 auto;
-  margin:0 auto;
-  position: absolute;
+  position: relative;
   justify-content: center;
-
-  align-items: center;
+  
 
 }
 /* .modal-lg{
@@ -69,3 +68,8 @@ h2 {
 .phone-pic {
   border-radius: 15px;
 }
+/* @media screen and(min-width:676px){
+  .modal{
+    max-width: 500px;
+  }
+} */
